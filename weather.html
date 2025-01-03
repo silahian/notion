@@ -1,4 +1,36 @@
-<a class="weatherwidget-io" href="https://forecast7.com/en/26d11n80d42/33327/?unit=us" data-label_1="FORT LAUDERDALE" data-label_2="WEATHER" >FORT LAUDERDALE WEATHER</a>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekday Display</title>
+</head>
+<body>
+    <h1 id="weekdayText"></h1>
+
+    <script>
+        const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const texts = {
+            "Monday": "VisualHFT",
+            "Tuesday": "Advisory",
+            "Wednesday": "SiS Pos/VisualMoney",
+            "Thursday": "HFT Operation",
+            "Friday": "Book"
+        };
+
+        const today = new Date();
+        const currentDayIndex = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+        const currentDayName = weekdays[currentDayIndex];
+
+        const weekdayTextElement = document.getElementById("weekdayText");
+
+        if (texts.hasOwnProperty(currentDayName)) {
+          weekdayTextElement.textContent = texts[currentDayName];
+        } else {
+          weekdayTextElement.textContent = "It's the weekend!"; // Handle weekends
+        }
+
+
+    </script>
+</body>
+</html>
